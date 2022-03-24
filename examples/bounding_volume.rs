@@ -8,6 +8,7 @@ use bevy_mod_raycast::{
     DefaultPluginState, DefaultRaycastingPlugin, RayCastMesh, RayCastMethod, RayCastSource,
     RaycastSystem,
 };
+use bevy::math::Vec3A;
 
 // This example will show you how to setup bounding volume to optimise when raycasting over a
 // scene with many meshes. The bounding volume will be used to check faster for which mesh
@@ -202,7 +203,7 @@ fn manage_aabb(
             if enabled.0 {
                 commands.entity(entity).remove::<Aabb>();
             } else {
-                aabb.half_extents = Vec3::ONE * f32::MAX;
+                aabb.half_extents = Vec3A::ONE * f32::MAX;
             }
         }
     }
